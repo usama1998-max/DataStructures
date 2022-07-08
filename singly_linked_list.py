@@ -38,12 +38,20 @@ class LinkedList:
         temp.next = Node(val)
         return
 
-    def display_nodes(self, root):
+    def iter_nodes(self, root):
         temp = root
 
         while temp is not None:
             print(temp.data, end=" ")
             temp = temp.next
+
+    def recur_nodes(self, root):
+        if root is None:
+            return
+
+        print(root.data)
+        self.recur_nodes(root.next)
+
 
     def reverse_nodes(self, root):
         temp = None
@@ -153,5 +161,4 @@ ll.append(1)
 ll.append(7)
 ll.append(456)
 
-ll.del_node(ll.head, 456)
-ll.display_nodes(ll.head)
+ll.iter_nodes(ll.head)

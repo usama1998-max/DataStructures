@@ -97,6 +97,18 @@ class Tree:
 
         return dt
 
+    def search_node(self, root, val):
+        if root is None or root.data == val:
+            return root
+
+        if root.data < val:
+            return self.search_node(root.right, val)
+
+        return self.search_node(root.left, val)
+
+    def del_node(self, root, val):
+
+
 
 tree = Tree(10)
 
@@ -105,8 +117,10 @@ tree.insert(2)
 tree.insert(3)
 tree.insert(46)
 
-d = tree.dictTraverse(tree)
+#d = tree.dictTraverse(tree)
 
-for k, v in d.items():
-    print(k, v, end="\n")
+#for k, v in d.items():
+    #print(k, v, end="\n")
 
+
+print(tree.search_node(tree, 3).data)
